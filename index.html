@@ -32,12 +32,32 @@
     
 
     <div id="calculadora">
-        <fieldset id="TipoJuro"> <legend> Tipo de juros: </legend> 
-	        <input type="radio" name="tTipoJuros" id="cTipoJuroSimples" /> <label for="cTipoJuroSimples"> Simples </label>
-	        <input type="radio" name="tTipoJuros" id="cTipoJuroComposto"/> <label for="cTipoJuroComposto"> Composto </label>
-		</fieldset>
+        <p><label for="cTipoJuro"> Tipo de juros: </label>
+            <select name="tTipoJuro" id="cTipoJuro">    
+                    <option value="JS">Simples</option>
+                    <option value="JC">Composto</option>
+        </select></p>
         
         <p><label for="cValorInicial"> Valor inicial: </label> <input type="number" name="tValorInicial" id="cValorInicial"/></p>
+        
+        <p><label for="cTempo"> Tempo: </label> <input type="number" name="tTempo" id="cTempo" min="1"/></p>
+
+        <p><label for="cRentabilidade"> Rentabilidade: </label> <input type="number" name="tRentabilidade" id="cRentabilidade"/> % </p>
+
+        <fieldset id="TipoTempo"> <legend> Tipo de rendabilidade: </legend> 
+            <input type="radio" name="tTipoTempo" id="cTempoAnos" /> <label for="cTempoAnos"> Anual </label>
+	        <input type="radio" name="tTipoTempo" id="cTempoMeses" /> <label for="cTempoMeses"> Mensal </label>
+	        <input type="radio" name="tTipoTempo" id="cTempoDias"/> <label for="cTempoDias"> Diária </label>
+		</fieldset>
+
+        <p>Total a receber: <input type="number" name="tTotal" id="cTotal"  readonly /></p>
+        
+        <p><input type="button" value="Calcular" id="calcular"></p>
+
+        <script>
+            var b = window.document.getElementById('calcular')
+            b.addEventListener('click', calculoJuros)
+        </script>
 
     </div>
 
