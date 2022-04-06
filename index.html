@@ -7,59 +7,49 @@
     <title>Cálculadora de juros compostos</title>
     <link rel="stylesheet" type="text/css" href="_css/estilo.css"/>
 </head>
-
 <script language="javascript" src="_javascript/funcoes.js"> </script> 
-
 <body>
     <h1> Com o intuito de ajudar investidores, esse site irá calcular de forma simples para o usuário os juros obtidos com base na taxa e período informados.</h1>
-    
     <h2> Primeira escolha: Juros simples ou juros compostos? </h2>
     <p> Os juros são cálculos que tem como objetivo corrigir os valores de translações financeiras ao longo do tempo. </br>
         Nos juros simples essa correção é aplicada a cada período considerando apenas o valor inicial enquanto nos juros compostos a correção é feita em cima dos valores já corrigidos, ou seja, juros sobre juros. </p>
-    
     <h2>Valor inicial.</h2>
     <p> O valor aplicado inicialmente.</p>
-    
     <h2> Taxa de juros a ser considerada. </h2>
     <p>A taxa de juros é o preço do "empréstimo" do dinheiro por um determinado prazo.</p>
-    
     <h2> Tipo de rentabilidade.  </h2>
     <p> Período em que o juros é adicionado ao capital investido, sendo as opções consideradas: diária, mensal e anual.</p>
-    
     <h2> Período. </h2>
     <p> Tempo em que o dinheiro ficará rendendo.</p>
-
-    
-
+    <h2>Obeservações</h2>
+    <p>Para fins de cálculos, considerou-se o ano com 365 dias e os meses com 30 dias. </p>
     <div id="calculadora">
         <p><label for="cTipoJuro"> Tipo de juros: </label>
             <select name="tTipoJuro" id="cTipoJuro">    
                     <option value="JS">Simples</option>
                     <option value="JC">Composto</option>
+        </select></p>        
+        <p><label for="cValorInicial"> Valor inicial: </label> <input type="number" name="tValorInicial" id="cValorInicial"/></p>        
+        <p><label for="cTipoTempo"> Tipo de tempo: </label>
+            <select name="tTipoTempo" id="cTipoTempo">    
+                    <option value="A">Ano </option>
+                    <option value="M">Mês </option>
+                    <option value="D">Dia </option>
         </select></p>
-        
-        <p><label for="cValorInicial"> Valor inicial: </label> <input type="number" name="tValorInicial" id="cValorInicial"/></p>
-        
         <p><label for="cTempo"> Tempo: </label> <input type="number" name="tTempo" id="cTempo" min="1"/></p>
-
         <p><label for="cRentabilidade"> Rentabilidade: </label> <input type="number" name="tRentabilidade" id="cRentabilidade"/> % </p>
-
-        <fieldset id="TipoTempo"> <legend> Tipo de rendabilidade: </legend> 
-            <input type="radio" name="tTipoTempo" id="cTempoAnos" /> <label for="cTempoAnos"> Anual </label>
-	        <input type="radio" name="tTipoTempo" id="cTempoMeses" /> <label for="cTempoMeses"> Mensal </label>
-	        <input type="radio" name="tTipoTempo" id="cTempoDias"/> <label for="cTempoDias"> Diária </label>
-		</fieldset>
-
-        <p>Total a receber: <input type="number" name="tTotal" id="cTotal"  readonly /></p>
-        
+        <p><label for="cTipoRentabilidade"> Tipo de rentabilidade: </label>
+            <select name="tTipoRentabilidade" id="cTipoRentabilidade">    
+                    <option value="A">Anual </option>
+                    <option value="M">Mensal </option>
+                    <option value="D">Diária </option>
+        </select></p>
+        <p>Total a receber: <input type="number" name="tTotal" id="cTotal"  readonly /></p>        
         <p><input type="button" value="Calcular" id="calcular"></p>
-
         <script>
             var b = window.document.getElementById('calcular')
             b.addEventListener('click', calculoJuros)
         </script>
-
     </div>
-
 </body>
 </html>
